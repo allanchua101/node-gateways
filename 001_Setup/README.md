@@ -18,7 +18,7 @@ Clone the following folders that contains the downstream services that the gatew
 
 #### Installing Downstream Service Dependencies
 
-Before you can run the downstream services locally, you have to install dependencies by running **Install Downstream Service Dependencies.sh**
+Before you can run the downstream services locally, you have to install dependencies by running *Install Downstream Service Dependencies.sh*
 
 ```sh
 # Linux or Mac
