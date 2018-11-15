@@ -43,7 +43,6 @@ eg gateway create
 #### Answer the following questions from the scaffolder.
 
 ```sh
-$ eg gateway create
 ? What's the name of your Express Gateway? gateway-demo
 ? Where would you like to install your Express Gateway? gateway-demo
 ? What type of Express Gateway do you want to create? Basic (default pipeline with proxy)
