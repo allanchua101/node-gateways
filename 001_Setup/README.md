@@ -34,7 +34,7 @@ Install Downstream Service Dependencies.sh
 npm install -g express-gateway
 ```
 
-#### Create a folder where you want to host your project using gateway scaffolder from step 1.
+#### Run express gateway scaffolder on the directory where you cloned the downstream services.
 
 ```sh
 eg gateway create
