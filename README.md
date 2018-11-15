@@ -1,2 +1,3 @@
-# node-gateways
-Repository for all NodeJS API gateways
+# NodeJS API Gateways
+
+This repository contains all NodeJS API Gateway sample projects.
