@@ -4,15 +4,29 @@ This repository showcases how to build a simple API gateway using NodeJS and Exp
 
 ## Pre-requisites
 
-- Installed NodeJS
+- NodeJS Installed ([Download Here](https://nodejs.org/en/download/))
+- Express Generator ([Installation Guide Here](https://expressjs.com/en/starter/generator.html))
+- Docker ([Download Here](https://www.docker.com/get-started))
 
-## Bootstrapping Downstream Services.
+#### Cloning Downstream Services.
 
 Clone the following folders that contains the downstream services that the gateway would aggregate.
 
-- 0001_Users
-- 0002_Transactions
-- 0003_Products
+- 0001-users
+- 0002-products
+- 0003-transactions
+
+#### Installing Downstream Service Dependencies
+
+Before you can run the downstream services locally, you have to install dependencies by running **Install Downstream Service Dependencies.sh**
+
+```sh
+# Linux or Mac
+sh Install Downstream Service Dependencies.sh
+
+# Windows via cmd
+Install Downstream Service Dependencies.sh
+```
 
 #### Install Express Gateway Globally
 
