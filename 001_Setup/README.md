@@ -1,5 +1,19 @@
 # Steps to setup an API Gateway
 
+This repository showcases how to build a simple API gateway using NodeJS and Express Gateway
+
+## Pre-requisites
+
+- Installed NodeJS
+
+## Bootstrapping Downstream Services.
+
+Clone the following folders that contains the downstream services that the gateway would aggregate.
+
+- 0001_Users
+- 0002_Transactions
+- 0003_Products
+
 #### Install Express Gateway Globally
 
 ```sh
