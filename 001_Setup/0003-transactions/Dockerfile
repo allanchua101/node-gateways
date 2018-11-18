@@ -6,5 +6,5 @@ COPY package*.json ./
 RUN npm install
 # Bundle app source 
 COPY . .
-EXPOSE 6002
+EXPOSE 8061
 ENTRYPOINT [ "npm", "start" ]

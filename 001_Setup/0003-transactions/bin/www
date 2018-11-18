@@ -12,7 +12,7 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort('6002');
+var port = normalizePort('8061');
 app.set('port', port);
 
 /**
@@ -88,3 +88,5 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+console.log(`Transactions API running on port ${port}`);
