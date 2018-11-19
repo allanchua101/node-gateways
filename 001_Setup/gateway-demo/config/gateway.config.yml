@@ -1,20 +1,54 @@
 http:
-  port: 8080
+  port: 8058
 admin:
   port: 9876
   hostname: localhost
 apiEndpoints:
-  # see: http://www.express-gateway.io/docs/configuration/gateway.config.yml/apiEndpoints
+  usersAPI:
+    host: 'vue.gateway.sg'
+    paths: 
+      - '/users/list'
+  productsAPI:
+    host: 'vue.gateway.sg'
+    paths: 
+      - '/products/list'
+  transactionsAPI:
+    host: 'vue.gateway.sg'
+    paths: 
+      - '/transactions/list'
 serviceEndpoints:
-  # see: http://www.express-gateway.io/docs/configuration/gateway.config.yml/serviceEndpoints
+  userService:
+    url: 'http://localhost:8059'
+  productService:
+    url: 'http://localhost:8060'
+  transactionService:
+    url: 'http://localhost:8061'
 policies:
-  - basic-auth
-  - cors
-  - expression
-  - key-auth
-  - log
-  - oauth2
+#   - expression
+#   - key-auth
   - proxy
-  - rate-limit
 pipelines:
-  # see: https://www.express-gateway.io/docs/configuration/gateway.config.yml/pipelines
+  - name: user_pipeline
+    apiEndpoints:
+      - usersAPI
+    policies:
+      - proxy:
+        - action:
+            serviceEndpoint: userService
+            changeOrigin: true
+  - name: product_pipeline
+    apiEndpoints:
+      - productsAPI
+    policies:
+      - proxy:
+        - action:
+            serviceEndpoint: productService
+            changeOrigin: true
+  - name: transactions_pipeline
+    apiEndpoints:
+      - transactionsAPI
+    policies:
+      - proxy:
+        - action:
+            serviceEndpoint: transactionService
+            changeOrigin: true

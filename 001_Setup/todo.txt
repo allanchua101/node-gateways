@@ -1,0 +1,3 @@
+- Create simple grids for each api project
+- Create a simple proxy rule for each gateway
+- Create an external routes
