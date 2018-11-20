@@ -2,8 +2,15 @@
 <html>
   <head>
     <title>Transactions API Demo</title>
-    <link rel="icon" href="https://vuejs.org/images/logo.png" type="image/png">
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link
+      rel="icon"
+      href="https://vuejs.org/images/logo.png"
+      type="image/png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
   </head>
   <style lang="css">
     * {
@@ -19,8 +26,90 @@
       font-size: 22px;
       padding: 24px;
     }
+
+    .data-card {
+      background-color: white;
+      min-width: 100%;
+      max-width: 100%;
+      margin: 4px;
+      margin-top: 16px;
+      text-align: center;
+      color: #888;
+      float: left;
+      padding: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      transition: .3s all ease-in;
+    }
+
+    .data-card:hover {
+      background-color: #F8F8F8;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
+
+    .data-card h1 {
+      font-size: 24px;
+    }
+
+    .data-card h2 {
+      font-size: 16px;
+      font-weight: lighter;
+      margin-bottom: 4px;
+    }
+
+    .data-card h3 {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .transaction-avatar {
+      max-width: 100%;
+    }
+
+    @media (min-width: 600px) {
+      .data-card {
+        min-width: 200px;
+        max-width: calc(15% - 16px);
+        min-height: 366px;
+      }
+
+      .data-card h1 {
+        font-weight: lighter;
+      }
+    }
   </style>
   <body>
     <h1>Transactions API Demo</h1>
+    <div id="app">
+      <div 
+        class="data-card"
+        v-for="item in transactions">
+        <img 
+          class="transaction-avatar"
+          v-bind:src="item.url" />
+        <h1>{{ item.productName }}</h1>
+        <h2>Price: $ {{ item.priceAtTimeOfSale }}.00</h2>
+        <h2>QTY: {{ item.quantity }}</h2>
+        <h3>Total: $ {{ item.quantity * item.priceAtTimeOfSale }}.00</h3>
+      </div>
+    </div>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      var app = new Vue({
+        el: "#app",
+        mounted() {
+          let component = this;
+
+          fetch("/transactions/list")
+            .then(response => response.json())
+            .then(data => {
+              component.transactions = data;
+            });
+        },
+        data: {
+          transactions: []
+        }
+      });
+    </script>
   </body>
 </html>

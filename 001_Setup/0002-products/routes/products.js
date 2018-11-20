@@ -11,12 +11,12 @@ router.get('/list', function(req, res, next) {
     },
     {
       id: 2,
-      name: "Why ReactJS T-Shirt",
+      name: "ReactJS T-Shirt",
       price: 10
     },
     {
       id: 3,
-      name: "Why Angular T-Shirt",
+      name: "Angular T-Shirt",
       price: 5
     }
   ])
