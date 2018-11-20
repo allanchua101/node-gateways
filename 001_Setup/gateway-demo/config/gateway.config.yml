@@ -7,14 +7,17 @@ apiEndpoints:
   usersAPI:
     host: 'vue.gateway.sg'
     paths: 
+      - '/users-page.html'
       - '/users/list'
   productsAPI:
     host: 'vue.gateway.sg'
     paths: 
+      - '/products-page.html'
       - '/products/list'
   transactionsAPI:
     host: 'vue.gateway.sg'
     paths: 
+      - '/transactions-page.html'
       - '/transactions/list'
 serviceEndpoints:
   userService:
